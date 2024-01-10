@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listagem de Clientes</title>
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='clientes.css') }}">
+</head>
+<body>
+    <h1>Listagem de Clientes</h1>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>E-mail</th>
+                <th>Telefone</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for cliente in clientes %}
+                <tr>
+                    <td>{{ cliente['id'] }}</td>
+                    <td>{{ cliente['nome'] }}</td>
+                    <td>{{ cliente['email'] }}</td>
+                    <td>{{ cliente['telefone'] }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <br>
+    <a href="/cadastro">Voltar para a página inicial</a>
+</body>
+</html>
